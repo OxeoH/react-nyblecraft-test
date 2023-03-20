@@ -1,19 +1,21 @@
 import React, { ChangeEvent, FormEvent } from 'react'
 import styles from './CreateForm.module.scss'
-import { MyInput } from '../UI/MyInput'
+import { MyInput } from '../UI/MyInput'//ToDo: replace default input
+import { useStore } from '../../store'
 
 export const CreateForm: React.FC = () => {
   const [text, setText] = React.useState('')
+  const {notesStore} = useStore();
 
-  const sendForm = async (e: FormEvent<HTMLFormElement>) =>{
+  const addNewNote = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
-  }
 
+    notesStore.addNote(text)
+  }
 
   return (
     <div className={styles.container}>
-      <form onSubmit={(e: FormEvent<HTMLFormElement>) => sendForm(e)} className={styles.form}>
+      <form onSubmit={(e: FormEvent<HTMLFormElement>) => addNewNote(e)} className={styles.form}>
           <div className={styles.fieldWrap}>
               <label className={styles.label}>Add Note: </label>
               <input

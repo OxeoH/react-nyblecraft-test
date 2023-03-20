@@ -1,7 +1,7 @@
 import { TagType } from "../Tag/tag.types"
 
 export type NoteType = {
-    id: number,
+    id: string,
     text: string,
     tags: TagType[]
 }

@@ -2,17 +2,25 @@ import React from 'react'
 import { Note } from '../Note'
 import styles from './Notes.module.scss'
 
-import data from '../../data/notes.json'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '../../store'
 
-export const Notes: React.FC = () => {
-  const [notesList, setNotesList] = React.useState(data.notes)
-
+export const Notes: React.FC = observer(() => {
+  const {notesStore} = useStore()
+  
   return (
-    <div>
+    <div className={styles.wrapper}>
         <h2>Notes List</h2>
         <div className={styles.list}>
-          {notesList.map(note => (<Note id={note.id} text={note.text} tags={note.tags} key={note.id}/>))}
+          {notesStore.notes.map((note, index) => (
+            <Note 
+              key={index}
+              id={note.id}
+              text={note.text} 
+              tags={note.tags} 
+              />
+            ))}
         </div>
     </div>
   )
-}
+})
