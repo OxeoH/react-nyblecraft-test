@@ -1,0 +1,30 @@
+.window{
+    display: flex;
+    flex-direction: row;
+    min-width: 800px;
+    min-height: 400px;
+    background-color:#DFD6A7;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #C6B9CD;
+    border: 4px solid #1F1300;
+}
+
+.tools{
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border-right: 4px solid #1F1300;
+}
+
+.notes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: center;
+    padding: 20px;
+}

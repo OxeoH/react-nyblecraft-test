@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.wrapper{
+    position: relative;
+}
+.label{
+    @include label();
+}
+
+.search{
+    max-width: 100%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 2rem;
+    border-color: $textcolor;
+}
+
+
+.cross{
+    &::before{
+        content: "";
+        position: absolute;
+        width: 4px; 
+        height: 14px; 
+        background: $textcolor;
+        transform: rotate(-45deg);
+    }
+    &::after{
+        transform: rotate(45deg);
+        content: "";
+        position: absolute; 
+        width: 4px; 
+        height: 14px; 
+        background: $textcolor;
+    }
+    cursor: pointer;
+    position: absolute; 
+    top: 38%;
+    right: 12%;
+}

@@ -1,0 +1,17 @@
+$textcolor: #1F1300;
+$backvanilla: #DFD6A7;
+$backpurple: #C6B9CD;
+
+@mixin label(){
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    top: -60%;
+    left: 10%;
+}
+
+@mixin button(){
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
