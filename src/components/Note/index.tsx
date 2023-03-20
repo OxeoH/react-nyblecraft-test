@@ -8,12 +8,16 @@ export const Note: React.FC<NoteType> = ({id, text, tags}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.note}>
-        <div className={styles.text}>{text}</div>
-        <MyButton>Edit</MyButton>
-        <MyButton>Delete</MyButton>
+        <div className={styles.text}><strong>{id}.</strong> {text}</div>
+        <div className={styles.buttons}>
+          <MyButton>Edit</MyButton>
+          <MyButton>X</MyButton>
+        </div>
       </div>
       <div className={styles.tags}>
-        {tags.map(tag => <Tag id={tag.id} text={tag.text} />)}
+        <div className={styles.list}>
+          {tags.map(tag => <Tag id={tag.id} text={tag.text} />)}
+        </div>
         <MyButton>Add</MyButton>
       </div>
     </div>

@@ -1,0 +1,48 @@
+@import '../../styles/variables.scss';
+
+@mixin notePart(){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: $backpurple;
+    border: 2px solid $textcolor;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    &:last-child(){
+        margin-bottom: 0;
+    }
+}
+
+.note{
+    @include notePart();
+    border-bottom: 2px solid $textcolor;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text{
+    max-width: 70%;
+    text-align: justify;
+}
+
+.tags{
+    @include notePart();
+}
+
+.list{
+    display: flex;
+    max-width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

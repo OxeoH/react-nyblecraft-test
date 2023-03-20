@@ -9,9 +9,9 @@ export const Notes: React.FC = () => {
 
   return (
     <div>
-        NotesList
-        <div>
-          {notesList.map(note => (<Note id={note.id} text={note.text} tags={note.tags}/>))}
+        <h2>Notes List</h2>
+        <div className={styles.list}>
+          {notesList.map(note => (<Note id={note.id} text={note.text} tags={note.tags} key={note.id}/>))}
         </div>
     </div>
   )

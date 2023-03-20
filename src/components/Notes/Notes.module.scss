@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+
+.list{
+    max-height: 60vh;
+    overflow:scroll;
+    overflow-x: hidden;
+    padding: 20px 30px;
+    background-color: white;
+}
