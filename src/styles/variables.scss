@@ -1,25 +1,25 @@
-$textcolor: #1F1300;
-$backvanilla: #DFD6A7;
-$backpurple: #C6B9CD;
+$textcolor: #1f1300;
+$backvanilla: #dfd6a7;
+$backpurple: #c6b9cd;
 
-@mixin label(){
-    font-weight: 700;
-    font-size: 18px;
-    position: absolute;
-    top: -60%;
-    left: 10%;
+@mixin label() {
+  font-weight: 700;
+  font-size: 18px;
+  position: absolute;
+  top: -60%;
+  left: 10%;
 }
 
-@mixin button(){
-    padding: 10px 20px;
-    font-weight: 700;
-    font-size: 16px;
+@mixin button() {
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-@mixin textarea(){
-    width: 100%;
-    min-height: max-content;
-    padding: 10px 20px 10px 20px;
-    border-color: $textcolor;
-    resize: none;
+@mixin textarea() {
+  width: 100%;
+  min-height: max-content;
+  padding: 10px 20px 10px 20px;
+  border-color: $textcolor;
+  resize: none;
 }

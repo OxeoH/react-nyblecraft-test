@@ -1,18 +1,16 @@
 @import '../../../styles/variables.scss';
 
-.button{
-    @include button();
+.button {
+  @include button();
 }
 
-.wrapper{
-    display: grid;
-    grid-template: repeat(2, 1fr)/1fr;
+.wrapper {
+  display: grid;
+  grid-template: repeat(2, 1fr) / 1fr;
 }
 
-.text{
-
+.text {
 }
 
-.tags{
-
+.tags {
 }

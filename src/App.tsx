@@ -1,14 +1,14 @@
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import './App.css';
-import { Main } from './pages/Main';
+import { observer } from 'mobx-react-lite'
+import React from 'react'
+import './App.css'
+import { Main } from './pages/Main'
 
 const App: React.FC = observer(() => {
   return (
     <div className="App">
-      <Main/>
+      <Main />
     </div>
-  );
+  )
 })
 
-export default App;
+export default App

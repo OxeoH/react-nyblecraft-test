@@ -1,31 +1,35 @@
 {
-    "notes": [
-      {
-        "id": "1",
-        "text": "ea molestias quasi exercitationem #repellat qui sea ipsa #sit #aut",
-        "tags": [{"id":"", "text":"#sit"}, {"id":"", "text":"#aut"}]
-  
-      },
-      {
-        "id": "2",
-        "text": "ea molestias quasi exercitationem repellat #qui sea ipsa sit aut",
-        "tags": [{"id":"", "text":"#qui"}]
-  
-      },
-      {
-        "id": "3",
-        "text": "#ea molestias quasi exercitationem #repellat qui sea ipsa sit aut",
-        "tags": [{"id":"", "text":"#ea"}, {"id":"", "text":"#repellat"}]
-      },
-      {
-        "id": "4",
-        "text": "#ea molestias quasi exercitationem repellat qui sea ipsa sit aut",
-        "tags": [{"id":"", "text":"#ea"}]
-      },
-      {
-        "id": "5",
-        "text": "#ea molestias quasi #exercitationem repellat qui sea ipsa sit aut",
-        "tags": [{"id":"", "text":"#ea"}]
-      }
-    ]
-  }
+  "notes": [
+    {
+      "id": "1",
+      "text": "ea molestias quasi exercitationem #repellat qui sea ipsa #sit #aut",
+      "tags": [
+        { "id": "", "text": "#sit" },
+        { "id": "", "text": "#aut" }
+      ]
+    },
+    {
+      "id": "2",
+      "text": "ea molestias quasi exercitationem repellat #qui sea ipsa sit aut",
+      "tags": [{ "id": "", "text": "#qui" }]
+    },
+    {
+      "id": "3",
+      "text": "#ea molestias quasi exercitationem #repellat qui sea ipsa sit aut",
+      "tags": [
+        { "id": "", "text": "#ea" },
+        { "id": "", "text": "#repellat" }
+      ]
+    },
+    {
+      "id": "4",
+      "text": "#ea molestias quasi exercitationem repellat qui sea ipsa sit aut",
+      "tags": [{ "id": "", "text": "#ea" }]
+    },
+    {
+      "id": "5",
+      "text": "#ea molestias quasi #exercitationem repellat qui sea ipsa sit aut",
+      "tags": [{ "id": "", "text": "#ea" }]
+    }
+  ]
+}

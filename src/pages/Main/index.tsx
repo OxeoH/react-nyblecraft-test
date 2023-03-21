@@ -7,18 +7,18 @@ import { useStore } from '../../store'
 import styles from './Main.module.scss'
 
 export const Main = () => {
-  const {notesStore} = useStore()
+  const { notesStore } = useStore()
 
   return (
     <div className={styles.window}>
-        <div className={styles.tools}>
-            <Search/>
-            <CreateForm/>
-            <MyButton onClick={() => notesStore.removeAll()}>Delete all notes</MyButton>
-        </div>
-        <div className={styles.notes}>
-            <Notes/>
-        </div>
+      <div className={styles.tools}>
+        <Search />
+        <CreateForm />
+        <MyButton onClick={() => notesStore.removeAll()}>Delete all notes</MyButton>
+      </div>
+      <div className={styles.notes}>
+        <Notes />
+      </div>
     </div>
   )
 }

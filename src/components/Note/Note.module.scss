@@ -1,60 +1,60 @@
 @import '../../styles/variables.scss';
 
-@mixin notePart(){
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+@mixin notePart() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
-.wrapper{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: $backpurple;
-    border: 2px solid $textcolor;
-    border-radius: 14px;
-    margin-bottom: 10px;
-    &:last-child(){
-        margin-bottom: 0;
-    }
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $backpurple;
+  border: 2px solid $textcolor;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  &:last-child() {
+    margin-bottom: 0;
+  }
 }
 
-.note{
-    @include notePart();
-    border-bottom: 2px solid $textcolor;
+.note {
+  @include notePart();
+  border-bottom: 2px solid $textcolor;
 }
-.buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.text{
-    max-width: 70%;
-    text-align: justify;
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.tags{
-    @include notePart();
-    position: relative;
+.text {
+  max-width: 70%;
+  text-align: justify;
 }
 
-.list{
-    display: flex;
-    max-width: 70%;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.tags {
+  @include notePart();
+  position: relative;
 }
 
-.edit{
-    @include textarea();
+.list {
+  display: flex;
+  max-width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.label{
-    position: absolute;
-    @include label();
-    color: red;
+.edit {
+  @include textarea();
+}
+
+.label {
+  position: absolute;
+  @include label();
+  color: red;
 }
