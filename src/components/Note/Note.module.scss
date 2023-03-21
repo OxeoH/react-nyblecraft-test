@@ -39,6 +39,7 @@
 
 .tags{
     @include notePart();
+    position: relative;
 }
 
 .list{
@@ -50,4 +51,10 @@
 
 .edit{
     @include textarea();
+}
+
+.label{
+    position: absolute;
+    @include label();
+    color: red;
 }

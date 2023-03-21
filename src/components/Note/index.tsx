@@ -1,11 +1,11 @@
+import { observer } from 'mobx-react-lite'
 import React, { ChangeEvent } from 'react'
 import { useStore } from '../../store'
-import Tag from '../Tag'
+import {Tag} from '../Tag'
 import MyButton from '../UI/MyButton'
 import styles from './Note.module.scss'
 import { NoteType } from './note.types'
-
-export const Note: React.FC<NoteType> = ({id, text, tags}) => {
+export const Note: React.FC<NoteType> = observer(({id, text, tags}) => {
 
   const {notesStore} = useStore()
 
@@ -30,7 +30,14 @@ export const Note: React.FC<NoteType> = ({id, text, tags}) => {
   const addTagToNote = () => {
     setAddTagArea(false)
 
-    setNoteText('')
+    if(!tagInput.includes('#') || tagInput.length < 2 || tagInput.includes(' ')){
+      alert('Error: You need to add "#" like "#news"!')
+      setTagInput('')
+      return
+    }
+
+    notesStore.addTagToNote(tagInput, id)
+    setTagInput('')
   }
 
   const counter = notesStore.getCounter(id)
@@ -71,7 +78,7 @@ export const Note: React.FC<NoteType> = ({id, text, tags}) => {
 
         {!addTagArea && 
           <div className={styles.list}>
-            {tags.map((tag, index) => <Tag key={index} id={tag.id} text={tag.text} />)}
+            {tags.map((tag, index) => <Tag key={index} id={tag.id} text={tag.text} noteId={id} />)}
           </div>
         }
         
@@ -81,7 +88,7 @@ export const Note: React.FC<NoteType> = ({id, text, tags}) => {
             value={tagInput}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setTagInput(event.target.value)}>
           </input>
-          }
+        }
         
         <div className={styles.buttons}>
           {!addTagArea && 
@@ -100,4 +107,4 @@ export const Note: React.FC<NoteType> = ({id, text, tags}) => {
 
     </div>
   )
-}
+})
