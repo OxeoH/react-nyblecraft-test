@@ -54,6 +54,12 @@
   margin-right: 20px;
 }
 
+.warning{
+  @include warning();
+  top: -5%;
+  right: 10%;
+}
+
 .label {
   position: absolute;
   @include label();

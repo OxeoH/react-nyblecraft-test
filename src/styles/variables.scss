@@ -11,6 +11,15 @@ $buttonblue: #06BCC1;
   left: 10%;
 }
 
+@mixin warning(){
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  font-weight: 500;
+  font-size: 16px;
+  color: red;
+}
+
 @mixin button() {
   transition: 0.3s ease-in-out 0s;
   padding: 10px 20px;

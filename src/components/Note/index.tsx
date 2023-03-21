@@ -17,6 +17,8 @@ export const Note: React.FC<NoteType> = observer(({ index, id, text, tags }) => 
   const [noteText, setNoteText] = React.useState(text)
   const [tagInput, setTagInput] = React.useState('')
 
+  const [showWarning, setShowWarning] = React.useState(false)
+
   const onChange = (value: string) => setNoteText(value)
 
   const removeNoteFromList = (id: string) => {
@@ -32,15 +34,16 @@ export const Note: React.FC<NoteType> = observer(({ index, id, text, tags }) => 
   }
 
   const addTagToNote = () => {
-    setAddTagArea(false)
-
-    if (!tagInput.includes('#') || tagInput.length < 2 || tagInput.includes(' ')) {
+    if(!tagInput.includes('#') || tagInput.length < 2 || tagInput.includes(' ')){
+      setShowWarning(true)
+      setTimeout(() => {
+        setShowWarning(false)
+      }, 1500)
+    }else{
+      notesStore.addTagToNote(tagInput, id)
+      setAddTagArea(false)
       setTagInput('')
-      return
     }
-
-    notesStore.addTagToNote(tagInput, id)
-    setTagInput('')
   }
 
   const counter = notesStore.getCounter(id)
@@ -99,6 +102,9 @@ export const Note: React.FC<NoteType> = observer(({ index, id, text, tags }) => 
               <MyButton onClick={() => setAddTagArea(false)}>Cancel</MyButton>
             </>
           )}
+          {!!showWarning && 
+            <label className={styles.warning}>Tag length can't be equal 0. Should include '#'</label>
+          }
         </div>
       </div>
     </div>

@@ -5,12 +5,20 @@ import { useStore } from '../../store'
 
 export const CreateForm: React.FC = () => {
   const [text, setText] = React.useState('')
+  const [showWarning, setShowWarning] = React.useState(false)
   const { notesStore } = useStore()
 
   const addNewNote = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    notesStore.addNote(text)
+    if(text.length){
+      notesStore.addNote(text)
+    }else{
+      setShowWarning(true)
+      setTimeout(() => {
+        setShowWarning(false)
+      }, 1500)
+    }
   }
 
   return (
@@ -28,6 +36,10 @@ export const CreateForm: React.FC = () => {
         </div>
         <input type="submit" value="Add" className={styles.submit} />
       </form>
+
+      {!!showWarning && 
+          <label className={styles.warning}>Length of note cannot be equal 0</label>
+      }
     </div>
   )
 }
