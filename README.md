@@ -29,7 +29,7 @@ Use this command to install all project dependencies
 ***
 ### `npm start`
 Use it to start the development server and open it in browser using this link http://localhost:3000
-
+***
 ### `npm run build`
 Or build the app for production to the `build` folder using this command. 
 See the section about **deployment** for more information.
