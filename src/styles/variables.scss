@@ -1,6 +1,7 @@
-$textcolor: #1f1300;
-$backvanilla: #dfd6a7;
-$backpurple: #c6b9cd;
+$textcolor: #12263A;
+$backmint: #b4e5d3;
+$backpurple: #F4EDEA;
+$buttonblue: #06BCC1;
 
 @mixin label() {
   font-weight: 700;
@@ -11,9 +12,17 @@ $backpurple: #c6b9cd;
 }
 
 @mixin button() {
+  transition: 0.3s ease-in-out 0s;
   padding: 10px 20px;
   font-weight: 700;
   font-size: 16px;
+  color: white;
+  background-color: $buttonblue;
+  &:hover{
+    transition: 0.3s ease-in-out 0s;
+    background-color: white;
+    color: $textcolor;
+  }
 }
 
 @mixin textarea() {
