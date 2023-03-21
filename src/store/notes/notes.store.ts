@@ -1,17 +1,20 @@
 import { makeAutoObservable } from "mobx";
 import { RootStore } from "..";
 import { NoteType } from "../../components/Note/note.types";
-import { findTagsInStroke } from "../../utils/findTagsInStroke";
+import { uniqueTagsInStroke } from "../../utils/uniqueTagsInStroke";
 import { uniqueNotesFromJSON } from "../../utils/uniqueNotesFromJSON";
 import { v4 as uuidv4} from 'uuid'
+import { findTagsInStroke } from "../../utils/findTagsInStroke";
 
 class NotesStore{
     notes: NoteType[]
+    searchValue: string
     rootStore: RootStore
 
     constructor(rootStore: RootStore){
         this.rootStore = rootStore
         this.notes = uniqueNotesFromJSON()
+        this.searchValue = ''
         makeAutoObservable(this)
     }
 
@@ -56,7 +59,7 @@ class NotesStore{
     }
 
     addNote(noteText: string){
-        const tagsList = findTagsInStroke(noteText)
+        const tagsList = uniqueTagsInStroke(noteText)
 
         const newNote: NoteType = {
             id: uuidv4(),
@@ -73,22 +76,14 @@ class NotesStore{
         if(index < 0) {
             alert("Error: Cannot find this note")
         }else{
-            const newTags = findTagsInStroke(newText)
+            const newTags = uniqueTagsInStroke(newText)
             console.log("New tags", newTags);
-            
-            if(newTags.length) {
-                this.notes[index].tags = []
-                this.notes[index] = {
-                    id: this.notes[index].id,
-                    text: newText,
-                    tags: newTags
-               }
-            }
 
+            this.notes[index].tags = []
             this.notes[index] = {
-                 id: this.notes[index].id,
-                 text: newText,
-                 tags: []
+                id: this.notes[index].id,
+                text: newText,
+                tags: newTags
             }
         }
     }
@@ -107,6 +102,10 @@ class NotesStore{
         const index = this.findNoteIndex(id)
         if(index < 0) alert("Error: Cannot find this note")
         return index
+    }
+
+    setSearchValue(search: string){
+        this.searchValue = search
     }
 }
 

@@ -1,22 +1,25 @@
 import React, { ChangeEvent } from 'react'
+import { useStore } from '../../store'
 import { MyInput } from '../UI/MyInput'
 
 import styles from './Search.module.scss'
 
 export const Search: React.FC = () => {
-  const [searchValue, setSearchValue] = React.useState('')
-
+  const {notesStore} = useStore()
+  const [searchValue, setSearchValue] = React.useState(notesStore.searchValue)
 
   const clearSearch = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
 
     setSearchValue('')
+    
+    notesStore.setSearchValue('')
   }
 
   const onSearchChange = (value: string) => {
 
     setSearchValue(value)
-    console.log(value);
+    notesStore.setSearchValue(value)
     
   }
 

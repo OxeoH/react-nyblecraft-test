@@ -1,7 +1,7 @@
 import { NoteType } from '../components/Note/note.types'
 import data from '../data/notes.json'
 import { v4 as uuidv4} from 'uuid'
-import { findTagsInStroke } from './findTagsInStroke'
+import { uniqueTagsInStroke } from './uniqueTagsInStroke'
 
 
 export const uniqueNotesFromJSON = () => {
@@ -9,7 +9,7 @@ export const uniqueNotesFromJSON = () => {
         note =  {
             ...note, 
             id: uuidv4(), 
-            tags: findTagsInStroke(note.text)}
+            tags: uniqueTagsInStroke(note.text)}
         return note
     })
     return notes
