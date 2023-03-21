@@ -3,7 +3,7 @@
 This is **NotesApp** that was created on the basis of **a test task** from the company **Nyblecraft**.
 
 # Deploy
-This project was deployed to free hosting **Netlify**. 
+This project was deployed on free hosting **Netlify**. 
 You can follow the link and try it: https://incandescent-brigadeiros-49da15.netlify.app
 
 # Stack
