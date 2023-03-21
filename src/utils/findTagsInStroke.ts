@@ -1,4 +1,4 @@
-const template = /#\b[a-z-0-9]+\b/gi
+export const template = /#\b[a-z-0-9]+\b/gi
 
 // \b - граница слова
 // /a+/ соответствует 'a' в "candy" и всем символам 'a' в "caaaaaaandy"

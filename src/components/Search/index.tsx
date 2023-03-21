@@ -6,19 +6,13 @@ import styles from './Search.module.scss'
 
 export const Search: React.FC = () => {
   const {notesStore} = useStore()
-  const [searchValue, setSearchValue] = React.useState(notesStore.searchValue)
 
   const clearSearch = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
-
-    setSearchValue('')
-    
     notesStore.setSearchValue('')
   }
 
   const onSearchChange = (value: string) => {
-
-    setSearchValue(value)
     notesStore.setSearchValue(value)
     
   }
@@ -27,7 +21,7 @@ export const Search: React.FC = () => {
     <div className={styles.wrapper}>
       <label className={styles.label}>Search:</label>
       <input type="text" 
-             value={searchValue} 
+             //value={notesStore.searchValue} 
              placeholder='Search by tag...' 
              className={styles.search}
              onChange={(e: ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}

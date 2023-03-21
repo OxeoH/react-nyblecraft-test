@@ -1,6 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import React, { ChangeEvent } from 'react'
+import HighlightWithinTextarea from 'react-highlight-within-textarea'
 import { useStore } from '../../store'
+import { template } from '../../utils/findTagsInStroke'
 import {Tag} from '../Tag'
 import MyButton from '../UI/MyButton'
 import styles from './Note.module.scss'
@@ -14,6 +16,8 @@ export const Note: React.FC<NoteType> = observer(({id, text, tags}) => {
 
   const [noteText, setNoteText] = React.useState(text)
   const [tagInput, setTagInput] = React.useState('')
+
+  const onChange = (value: string) => setNoteText(value)
 
   const removeNoteFromList = (id: string) =>{
     notesStore.deleteNote(id);
@@ -47,11 +51,14 @@ export const Note: React.FC<NoteType> = observer(({id, text, tags}) => {
       <div className={styles.note}>
 
         {showEditArea && 
-          <textarea 
+          <div 
             className={styles.edit} 
-            value={noteText}
-            onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setNoteText(event.target.value)}>
-          </textarea>
+            >
+              <HighlightWithinTextarea
+                    value={noteText}
+                    onChange={onChange}
+                    highlight={template}/>
+          </div>
         }
 
         {!showEditArea && 
