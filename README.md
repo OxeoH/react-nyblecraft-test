@@ -17,7 +17,7 @@ You can follow the link and try it: https://incandescent-brigadeiros-49da15.netl
 
 1. Create, edit, view and delete notes;
 2. Filter notes by tag;
-3. Adding and removing tags from the list.
+3. Adding and removing (on double click) tags from the list.
 4. Store data in json format.
 5. Add new tags to note
 6. Highlighting tags while post is being edited
