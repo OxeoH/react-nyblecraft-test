@@ -13,12 +13,15 @@ export const CreateForm: React.FC = () => {
 
     if(text.length){
       notesStore.addNote(text)
-    }else{
-      setShowWarning(true)
-      setTimeout(() => {
-        setShowWarning(false)
-      }, 1500)
+      return
     }
+
+    setShowWarning(true)
+
+    setTimeout(() => {
+      setShowWarning(false)
+    }, 1500)
+    
   }
 
   return (

@@ -5,13 +5,11 @@ import { findTagsInStroke } from './findTagsInStroke'
 export const uniqueTagsInStroke = (noteText: string) => {
   const result = findTagsInStroke(noteText)
 
-  if (result) {
-    let newTags: TagType[] = result.map(item => {
-      return { id: uuidv4(), text: item }
-    })
+  if (!result)  return []
+  
+  let newTags: TagType[] = result.map(item => {
+    return { id: uuidv4(), text: item }
+  })
 
-    return newTags
-  }
-
-  return []
+  return newTags
 }

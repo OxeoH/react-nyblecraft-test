@@ -3,6 +3,7 @@ import React, { ChangeEvent } from 'react'
 import HighlightWithinTextarea from 'react-highlight-within-textarea'
 import { useStore } from '../../store'
 import { template } from '../../utils/findTagsInStroke'
+import SwitchTools from '../SwitchTools'
 import Tag from '../Tag'
 import MyButton from '../UI/MyButton'
 import styles from './Note.module.scss'
@@ -39,11 +40,11 @@ export const Note: React.FC<NoteType> = observer(({ index, id, text, tags }) => 
       setTimeout(() => {
         setShowWarning(false)
       }, 1500)
-    }else{
-      notesStore.addTagToNote(tagInput, id)
-      setAddTagArea(false)
-      setTagInput('')
+      return
     }
+    notesStore.addTagToNote(tagInput, id)
+    setAddTagArea(false)
+    setTagInput('')
   }
 
   const counter = notesStore.getCounter(id)
@@ -63,25 +64,21 @@ export const Note: React.FC<NoteType> = observer(({ index, id, text, tags }) => 
         )}
 
         <div className={styles.buttons}>
-          {!showEditArea ? (
-            <>
-              <MyButton onClick={() => setShowEditArea(true)}>Edit</MyButton>
-              <MyButton onClick={() => removeNoteFromList(id)}>X</MyButton>
-            </>
-          ) : (
-            <>
-              <MyButton onClick={() => editNote()}>Save</MyButton>
-              <MyButton onClick={() => setShowEditArea(false)}>Cancel</MyButton>
-            </>
-          )}
+          <SwitchTools 
+            saveCallBack={editNote} 
+            showSetter={setShowEditArea} 
+            show={showEditArea} 
+            removeCallBack={removeNoteFromList} 
+            id={id}
+          />
         </div>
       </div>
 
       <div className={styles.tags}>
         {!addTagArea ? (
           <div className={styles.list}>
-            {tags.map((tag, index) => (
-              <Tag key={index} id={tag.id} text={tag.text} noteId={id} />
+            {tags.map((tag) => (
+              <Tag key={tag.id} id={tag.id} text={tag.text} noteId={id} />
             ))}
           </div>
         ) : (

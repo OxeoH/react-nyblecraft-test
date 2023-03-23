@@ -27,16 +27,19 @@ class NotesStore {
   }
   findNoteIndex(id: string) {
     const index = this.notes.findIndex(note => note.id === id)
-    if (index < 0) {
-      console.log('Error: cannot find note with that id: ', id)
-      return -1
-    }
+    
     return index
   }
 
   deleteTag(tagId: string, noteId: string) {
     const index = this.findNoteIndex(noteId)
-
+    console.log('tag:', tagId);
+    console.log('note: ', noteId);
+    console.log('index', index);
+    console.log(toJS(this.notes));
+    
+    
+    
     if (index < 0) {
       console.log('Error: Cannot find this note')
     } else {
@@ -72,26 +75,29 @@ class NotesStore {
 
   editNote(id: string, newText: string) {
     const index = this.findNoteIndex(id)
-    console.log('Notes before func:', toJS(this.notes[index]))
 
     if (index < 0) {
       alert('Error: Cannot find this note')
-    } else {
-      const newTags = uniqueTagsInStroke(newText)
+      return
+    }
 
-      this.notes[index] = {
-        id: this.notes[index].id,
-        text: newText,
-        tags: newTags,
-      }
+    const newTags = uniqueTagsInStroke(newText)
 
-      console.log('Notes after func:', toJS(this.notes[index]))
+    this.notes[index] = {
+      id: this.notes[index].id,
+      text: newText,
+      tags: newTags,
     }
   }
 
   deleteNote(id: string) {
     const index = this.findNoteIndex(id)
-    if (index < 0) alert('Error: Cannot find this note')
+
+    if (index < 0){
+      alert('Error: Cannot find this note')
+      return
+    }
+
     this.notes = this.notes.filter(note => note.id !== this.notes[index].id)
   }
 

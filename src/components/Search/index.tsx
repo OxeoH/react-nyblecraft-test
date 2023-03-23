@@ -6,7 +6,7 @@ import { MyInput } from '../UI/MyInput'
 
 import styles from './Search.module.scss'
 
-export const Search: React.FC = observer(() => {
+export const Search: React.FC = () => {//observer
   const { notesStore } = useStore()
   const [value, setValue] = React.useState(notesStore.searchValue);
 
@@ -18,8 +18,8 @@ export const Search: React.FC = observer(() => {
   const debouncedValue = useDebounce<string>(value, 500)
 
   React.useEffect(() => {
-    notesStore.setSearchValue(value)
-  }, [debouncedValue])
+    notesStore.setSearchValue(debouncedValue)
+  }, [debouncedValue, notesStore])
 
   return (
     <div className={styles.wrapper}>
@@ -34,4 +34,4 @@ export const Search: React.FC = observer(() => {
       <div className={styles.cross} onClick={e => clearSearch(e)} />
     </div>
   )
-})
+}
